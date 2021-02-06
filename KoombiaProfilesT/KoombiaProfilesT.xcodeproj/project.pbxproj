@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		C58EE6B725CEE51500976A3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C58EE6B525CEE51500976A3F /* LaunchScreen.storyboard */; };
 		C58EE6C225CEE51500976A3F /* KoombiaProfilesTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE6C125CEE51500976A3F /* KoombiaProfilesTTests.swift */; };
 		C58EE6CD25CEE51500976A3F /* KoombiaProfilesTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE6CC25CEE51500976A3F /* KoombiaProfilesTUITests.swift */; };
+		C58EE6E825CEEC9200976A3F /* CouchbaseLiteSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C58EE6E725CEEC9200976A3F /* CouchbaseLiteSwift */; };
+		C58EE6EE25CEECB500976A3F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C58EE6ED25CEECB500976A3F /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58EE6E825CEEC9200976A3F /* CouchbaseLiteSwift in Frameworks */,
+				C58EE6EE25CEECB500976A3F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +148,10 @@
 			dependencies = (
 			);
 			name = KoombiaProfilesT;
+			packageProductDependencies = (
+				C58EE6E725CEEC9200976A3F /* CouchbaseLiteSwift */,
+				C58EE6ED25CEECB500976A3F /* Alamofire */,
+			);
 			productName = KoombiaProfilesT;
 			productReference = C58EE6A725CEE51400976A3F /* KoombiaProfilesT.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +223,10 @@
 				Base,
 			);
 			mainGroup = C58EE69E25CEE51400976A3F;
+			packageReferences = (
+				C58EE6E625CEEC9200976A3F /* XCRemoteSwiftPackageReference "couchbase-lite-swift-ee" */,
+				C58EE6EC25CEECB500976A3F /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = C58EE6A825CEE51400976A3F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -595,6 +607,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C58EE6E625CEEC9200976A3F /* XCRemoteSwiftPackageReference "couchbase-lite-swift-ee" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/couchbase/couchbase-lite-swift-ee.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.1;
+			};
+		};
+		C58EE6EC25CEECB500976A3F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C58EE6E725CEEC9200976A3F /* CouchbaseLiteSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C58EE6E625CEEC9200976A3F /* XCRemoteSwiftPackageReference "couchbase-lite-swift-ee" */;
+			productName = CouchbaseLiteSwift;
+		};
+		C58EE6ED25CEECB500976A3F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C58EE6EC25CEECB500976A3F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C58EE69F25CEE51400976A3F /* Project object */;
 }

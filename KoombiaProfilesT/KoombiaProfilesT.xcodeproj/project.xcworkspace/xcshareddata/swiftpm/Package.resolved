@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire",
+        "state": {
+          "branch": null,
+          "revision": "eaf6e622dd41b07b251d8f01752eab31bc811493",
+          "version": "5.4.1"
+        }
+      },
+      {
+        "package": "CouchbaseLiteSwift",
+        "repositoryURL": "https://github.com/couchbase/couchbase-lite-swift-ee.git",
+        "state": {
+          "branch": null,
+          "revision": "d051bb6bb0727301aa481b901e612bd3e049fee5",
+          "version": "2.8.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
