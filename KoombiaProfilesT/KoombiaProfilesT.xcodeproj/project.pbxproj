@@ -17,6 +17,16 @@
 		C58EE6CD25CEE51500976A3F /* KoombiaProfilesTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE6CC25CEE51500976A3F /* KoombiaProfilesTUITests.swift */; };
 		C58EE6E825CEEC9200976A3F /* CouchbaseLiteSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C58EE6E725CEEC9200976A3F /* CouchbaseLiteSwift */; };
 		C58EE6EE25CEECB500976A3F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C58EE6ED25CEECB500976A3F /* Alamofire */; };
+		C58EE70225CEEDF000976A3F /* ProxyRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE70125CEEDF000976A3F /* ProxyRest.swift */; };
+		C58EE70B25CEF50E00976A3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE70A25CEF50E00976A3F /* Constants.swift */; };
+		C58EE71325CEF7E500976A3F /* InterfaceProxyrest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE71225CEF7E500976A3F /* InterfaceProxyrest.swift */; };
+		C58EE71A25CEF91400976A3F /* RepoHomeWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE71925CEF91400976A3F /* RepoHomeWeb.swift */; };
+		C58EE72625CEFD7700976A3F /* InterfaceRepoHomeWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE72525CEFD7700976A3F /* InterfaceRepoHomeWeb.swift */; };
+		C58EE72E25CEFE5200976A3F /* HomePostsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE72D25CEFE5200976A3F /* HomePostsResponse.swift */; };
+		C58EE73425CF0C9B00976A3F /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE73325CF0C9B00976A3F /* HomeUseCase.swift */; };
+		C58EE73925CF0D5800976A3F /* InterfaceHomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE73825CF0D5800976A3F /* InterfaceHomeUseCase.swift */; };
+		C58EE74125CF0EC100976A3F /* HomePostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE74025CF0EC100976A3F /* HomePostsViewModel.swift */; };
+		C58EE74625CF0EDA00976A3F /* InterfaceHomePostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE74525CF0EDA00976A3F /* InterfaceHomePostsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +61,16 @@
 		C58EE6C825CEE51500976A3F /* KoombiaProfilesTUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KoombiaProfilesTUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C58EE6CC25CEE51500976A3F /* KoombiaProfilesTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoombiaProfilesTUITests.swift; sourceTree = "<group>"; };
 		C58EE6CE25CEE51500976A3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C58EE70125CEEDF000976A3F /* ProxyRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyRest.swift; sourceTree = "<group>"; };
+		C58EE70A25CEF50E00976A3F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C58EE71225CEF7E500976A3F /* InterfaceProxyrest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceProxyrest.swift; sourceTree = "<group>"; };
+		C58EE71925CEF91400976A3F /* RepoHomeWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoHomeWeb.swift; sourceTree = "<group>"; };
+		C58EE72525CEFD7700976A3F /* InterfaceRepoHomeWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceRepoHomeWeb.swift; sourceTree = "<group>"; };
+		C58EE72D25CEFE5200976A3F /* HomePostsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostsResponse.swift; sourceTree = "<group>"; };
+		C58EE73325CF0C9B00976A3F /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
+		C58EE73825CF0D5800976A3F /* InterfaceHomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceHomeUseCase.swift; sourceTree = "<group>"; };
+		C58EE74025CF0EC100976A3F /* HomePostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostsViewModel.swift; sourceTree = "<group>"; };
+		C58EE74525CF0EDA00976A3F /* InterfaceHomePostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceHomePostsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +123,9 @@
 		C58EE6A925CEE51400976A3F /* KoombiaProfilesT */ = {
 			isa = PBXGroup;
 			children = (
+				C58EE6FF25CEED9A00976A3F /* DataLayer */,
+				C58EE70925CEF4FB00976A3F /* DomainLayer */,
+				C58EE73D25CF0E6700976A3F /* PresentationLayer */,
 				C58EE6AA25CEE51400976A3F /* AppDelegate.swift */,
 				C58EE6AC25CEE51400976A3F /* SceneDelegate.swift */,
 				C58EE6AE25CEE51400976A3F /* ViewController.swift */,
@@ -130,6 +153,93 @@
 				C58EE6CE25CEE51500976A3F /* Info.plist */,
 			);
 			path = KoombiaProfilesTUITests;
+			sourceTree = "<group>";
+		};
+		C58EE6FF25CEED9A00976A3F /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C58EE70025CEEDBB00976A3F /* Http Helper */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		C58EE70025CEEDBB00976A3F /* Http Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C58EE70125CEEDF000976A3F /* ProxyRest.swift */,
+				C58EE71225CEF7E500976A3F /* InterfaceProxyrest.swift */,
+			);
+			path = "Http Helper";
+			sourceTree = "<group>";
+		};
+		C58EE70925CEF4FB00976A3F /* DomainLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C58EE70A25CEF50E00976A3F /* Constants.swift */,
+				C58EE72425CEFAAD00976A3F /* Models */,
+				C58EE71725CEF8D500976A3F /* Repositories */,
+				C58EE73225CF0BBC00976A3F /* Use Cases */,
+			);
+			path = DomainLayer;
+			sourceTree = "<group>";
+		};
+		C58EE71725CEF8D500976A3F /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				C58EE71825CEF8EB00976A3F /* Web */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		C58EE71825CEF8EB00976A3F /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				C58EE71925CEF91400976A3F /* RepoHomeWeb.swift */,
+				C58EE72525CEFD7700976A3F /* InterfaceRepoHomeWeb.swift */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		C58EE72425CEFAAD00976A3F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C58EE72D25CEFE5200976A3F /* HomePostsResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C58EE73225CF0BBC00976A3F /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+				C58EE73325CF0C9B00976A3F /* HomeUseCase.swift */,
+				C58EE73825CF0D5800976A3F /* InterfaceHomeUseCase.swift */,
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		C58EE73D25CF0E6700976A3F /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C58EE73F25CF0E8A00976A3F /* Controller */,
+				C58EE73E25CF0E7900976A3F /* ViewModel */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		C58EE73E25CF0E7900976A3F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C58EE74025CF0EC100976A3F /* HomePostsViewModel.swift */,
+				C58EE74525CF0EDA00976A3F /* InterfaceHomePostsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C58EE73F25CF0E8A00976A3F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,8 +380,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58EE70B25CEF50E00976A3F /* Constants.swift in Sources */,
 				C58EE6AF25CEE51400976A3F /* ViewController.swift in Sources */,
 				C58EE6AB25CEE51400976A3F /* AppDelegate.swift in Sources */,
+				C58EE72625CEFD7700976A3F /* InterfaceRepoHomeWeb.swift in Sources */,
+				C58EE73925CF0D5800976A3F /* InterfaceHomeUseCase.swift in Sources */,
+				C58EE73425CF0C9B00976A3F /* HomeUseCase.swift in Sources */,
+				C58EE70225CEEDF000976A3F /* ProxyRest.swift in Sources */,
+				C58EE71A25CEF91400976A3F /* RepoHomeWeb.swift in Sources */,
+				C58EE72E25CEFE5200976A3F /* HomePostsResponse.swift in Sources */,
+				C58EE74125CF0EC100976A3F /* HomePostsViewModel.swift in Sources */,
+				C58EE74625CF0EDA00976A3F /* InterfaceHomePostsViewModel.swift in Sources */,
+				C58EE71325CEF7E500976A3F /* InterfaceProxyrest.swift in Sources */,
 				C58EE6AD25CEE51400976A3F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
