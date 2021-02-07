@@ -14,6 +14,11 @@ class ViewController: UIViewController {
     
     private let profileHeaderHeight: CGFloat = 70
     private let titleText = "Home"
+    private let tryAgainText = "Try again"
+    private let cancelText = "Cancel"
+    private let errorText = "Error"
+    private let errorMessageText = "Error fetching data, please try again"
+    
     let viewModel = HomePostViewModel()
     var currentImagePath = String()
     
@@ -57,8 +62,6 @@ class ViewController: UIViewController {
         return PreviewImageViewController(coder: coder, path: currentImagePath)
     }
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
@@ -83,6 +86,12 @@ class ViewController: UIViewController {
         activityIndicator.startAnimating()
         viewModel.getPosts { [weak self] (success, error) in
             guard let self = self else { return }
+            
+            guard success else {
+                self.presentalert()
+                return
+            }
+            
             self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
         }
@@ -91,9 +100,30 @@ class ViewController: UIViewController {
     @objc private func refreshControlValueChanged() {
         viewModel.getPosts {[weak self] (success, error) in
             guard let self = self else { return }
+            
+            guard success else {
+                self.presentalert()
+                return
+            }
+            
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
         }
+    }
+    
+    func presentalert() {
+        let alert = UIAlertController(title: errorText, message: errorMessageText, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: tryAgainText, style: .default) { [weak self] (alert) in
+            self?.setupData()
+        }
+        
+        let cancelAction = UIAlertAction(title: cancelText, style: .cancel) { (alert) in }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
 }
