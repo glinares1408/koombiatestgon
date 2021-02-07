@@ -10,10 +10,10 @@ import Foundation
 typealias HomePostsViewModelCompletionClosure = (_ success: Bool, _ error: Error?) -> Void
 
 class HomePostViewModel {
-    let useCase: InterfaceHomeUseCase
+    let useCase: InterfaceHomePostsUseCase
     var homePublication: HomePostsResponse?
     
-    required init(useCase: InterfaceHomeUseCase = HomePostsUseCase(repoWeb: RepoHomeWeb(proxyRest: ProxyRest()))) {//WIP: improve this
+    required init(useCase: InterfaceHomePostsUseCase = HomePostsUseCase(repoWeb: RepoHomeWeb(proxyRest: ProxyRest()), repoDataBase: RepoDataBase())) {//WIP: improve this
         self.useCase = useCase
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol InterfaceHomePostsViewModel {
-    init(useCase: InterfaceHomeUseCase)
+    init(useCase: InterfaceHomePostsUseCase)
     var homePublication: HomePostsResponse? { get set }
     func getPosts(completion: @escaping HomePostsViewModelCompletionClosure)
 }

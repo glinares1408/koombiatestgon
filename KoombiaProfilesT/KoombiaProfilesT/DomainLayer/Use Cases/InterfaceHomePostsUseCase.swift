@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol InterfaceHomeUseCase {
-    init(repoWeb: InterfaceRepoHomeWeb)
+protocol InterfaceHomePostsUseCase {
+    init(repoWeb: InterfaceRepoHomeWeb, repoDataBase: InterfaceRepoDataBase)
     func obtainHomePosts(completion: @escaping HomePostsUseCaseCompletionClosure)
 }

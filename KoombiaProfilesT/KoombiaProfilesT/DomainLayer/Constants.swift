@@ -17,4 +17,8 @@ struct Constants {
         static let baseURL = "https://mock.koombea.io/mt/api/"
         static let koombeaPosts = "posts"
     }
+    
+    struct DataBase {
+        static let homePosts = "home_posts"
+    }
 }

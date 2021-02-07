@@ -23,10 +23,14 @@
 		C58EE71A25CEF91400976A3F /* RepoHomeWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE71925CEF91400976A3F /* RepoHomeWeb.swift */; };
 		C58EE72625CEFD7700976A3F /* InterfaceRepoHomeWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE72525CEFD7700976A3F /* InterfaceRepoHomeWeb.swift */; };
 		C58EE72E25CEFE5200976A3F /* HomePostsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE72D25CEFE5200976A3F /* HomePostsResponse.swift */; };
-		C58EE73425CF0C9B00976A3F /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE73325CF0C9B00976A3F /* HomeUseCase.swift */; };
-		C58EE73925CF0D5800976A3F /* InterfaceHomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE73825CF0D5800976A3F /* InterfaceHomeUseCase.swift */; };
+		C58EE73425CF0C9B00976A3F /* HomePostsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE73325CF0C9B00976A3F /* HomePostsUseCase.swift */; };
+		C58EE73925CF0D5800976A3F /* InterfaceHomePostsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE73825CF0D5800976A3F /* InterfaceHomePostsUseCase.swift */; };
 		C58EE74125CF0EC100976A3F /* HomePostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE74025CF0EC100976A3F /* HomePostsViewModel.swift */; };
 		C58EE74625CF0EDA00976A3F /* InterfaceHomePostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE74525CF0EDA00976A3F /* InterfaceHomePostsViewModel.swift */; };
+		C58EE75025CF3A6E00976A3F /* HomePostsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE74F25CF3A6E00976A3F /* HomePostsDatabase.swift */; };
+		C58EE75625CF3D1500976A3F /* HomePostsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE75525CF3D1500976A3F /* HomePostsDAO.swift */; };
+		C58EE76125CF464000976A3F /* InterfaceRepoDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE76025CF464000976A3F /* InterfaceRepoDataBase.swift */; };
+		C58EE76925CF469A00976A3F /* RepoDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE76825CF469A00976A3F /* RepoDataBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,10 +71,14 @@
 		C58EE71925CEF91400976A3F /* RepoHomeWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoHomeWeb.swift; sourceTree = "<group>"; };
 		C58EE72525CEFD7700976A3F /* InterfaceRepoHomeWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceRepoHomeWeb.swift; sourceTree = "<group>"; };
 		C58EE72D25CEFE5200976A3F /* HomePostsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostsResponse.swift; sourceTree = "<group>"; };
-		C58EE73325CF0C9B00976A3F /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
-		C58EE73825CF0D5800976A3F /* InterfaceHomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceHomeUseCase.swift; sourceTree = "<group>"; };
+		C58EE73325CF0C9B00976A3F /* HomePostsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostsUseCase.swift; sourceTree = "<group>"; };
+		C58EE73825CF0D5800976A3F /* InterfaceHomePostsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceHomePostsUseCase.swift; sourceTree = "<group>"; };
 		C58EE74025CF0EC100976A3F /* HomePostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostsViewModel.swift; sourceTree = "<group>"; };
 		C58EE74525CF0EDA00976A3F /* InterfaceHomePostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceHomePostsViewModel.swift; sourceTree = "<group>"; };
+		C58EE74F25CF3A6E00976A3F /* HomePostsDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostsDatabase.swift; sourceTree = "<group>"; };
+		C58EE75525CF3D1500976A3F /* HomePostsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostsDAO.swift; sourceTree = "<group>"; };
+		C58EE76025CF464000976A3F /* InterfaceRepoDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceRepoDataBase.swift; sourceTree = "<group>"; };
+		C58EE76825CF469A00976A3F /* RepoDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDataBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				C58EE70025CEEDBB00976A3F /* Http Helper */,
+				C58EE74E25CF3A1200976A3F /* Database Helper */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -187,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				C58EE71825CEF8EB00976A3F /* Web */,
+				C58EE75D25CF460000976A3F /* DataBase */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -211,8 +221,8 @@
 		C58EE73225CF0BBC00976A3F /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
-				C58EE73325CF0C9B00976A3F /* HomeUseCase.swift */,
-				C58EE73825CF0D5800976A3F /* InterfaceHomeUseCase.swift */,
+				C58EE73825CF0D5800976A3F /* InterfaceHomePostsUseCase.swift */,
+				C58EE73325CF0C9B00976A3F /* HomePostsUseCase.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -242,6 +252,32 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		C58EE74E25CF3A1200976A3F /* Database Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C58EE75425CF3D0300976A3F /* DAO */,
+				C58EE74F25CF3A6E00976A3F /* HomePostsDatabase.swift */,
+			);
+			path = "Database Helper";
+			sourceTree = "<group>";
+		};
+		C58EE75425CF3D0300976A3F /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				C58EE75525CF3D1500976A3F /* HomePostsDAO.swift */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		C58EE75D25CF460000976A3F /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				C58EE76025CF464000976A3F /* InterfaceRepoDataBase.swift */,
+				C58EE76825CF469A00976A3F /* RepoDataBase.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -252,6 +288,7 @@
 				C58EE6A325CEE51400976A3F /* Sources */,
 				C58EE6A425CEE51400976A3F /* Frameworks */,
 				C58EE6A525CEE51400976A3F /* Resources */,
+				C58EE74A25CF275800976A3F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -375,22 +412,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C58EE74A25CF275800976A3F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "# Strip non-valid archecture types from the given universal binary file.\nstrip() {\n    i=0\n    archs=\"$(lipo -info \"$1\" | cut -d ':' -f3)\"\n    for arch in $archs; do\n        if ! [[ \"${VALID_ARCHS}\" == *\"${arch}\"* ]]; then\n            lipo -remove \"${arch}\" -output \"$1\" \"$1\" || exit 1\n            i=$((i + 1))\n        fi\n    done\n    \n    if [[ ${i} > 0 ]]; then\n        archs=\"$(lipo -info \"$1\" | cut -d ':' -f3)\"\n        echo \"Stripped $1 : ${archs}\"\n        return 0\n    else\n        return 1\n    fi\n}\n\n# Go to frameworks folder:\ncd \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\n# Strip frameworks:\ndsyms_files=()\nfor file in $(find . -type f -perm +111 | grep \".framework\"); do\n    if ! [[ \"$(file \"${file}\")\" == *\"dynamically linked shared library\"* ]]; then\n        continue\n    fi\n\n    strip \"${file}\"\n    if [[ $? == 0 ]]; then\n        # Code sign the stripped framework:\n        if [ \"${CODE_SIGNING_REQUIRED}\" == \"YES\" ]; then\n            echo \"Sign ${file}\"\n            codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"${file}\"\n        fi\n\n        bin_name=\"$(basename \"${file}\")\"\n        dsyms_files+=(${BUILT_PRODUCTS_DIR}/${bin_name}.framework.dSYM/Contents/Resources/DWARF/${bin_name})\n    fi\ndone\n\n# Strip dSYM files:\nfor file in $dsyms_files; do\n    if [[ -e \"${file}\" ]]; then\n        strip \"${file}\" || true\n    fi\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C58EE6A325CEE51400976A3F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58EE75625CF3D1500976A3F /* HomePostsDAO.swift in Sources */,
 				C58EE70B25CEF50E00976A3F /* Constants.swift in Sources */,
+				C58EE76125CF464000976A3F /* InterfaceRepoDataBase.swift in Sources */,
 				C58EE6AF25CEE51400976A3F /* ViewController.swift in Sources */,
 				C58EE6AB25CEE51400976A3F /* AppDelegate.swift in Sources */,
 				C58EE72625CEFD7700976A3F /* InterfaceRepoHomeWeb.swift in Sources */,
-				C58EE73925CF0D5800976A3F /* InterfaceHomeUseCase.swift in Sources */,
-				C58EE73425CF0C9B00976A3F /* HomeUseCase.swift in Sources */,
+				C58EE76925CF469A00976A3F /* RepoDataBase.swift in Sources */,
+				C58EE73925CF0D5800976A3F /* InterfaceHomePostsUseCase.swift in Sources */,
+				C58EE73425CF0C9B00976A3F /* HomePostsUseCase.swift in Sources */,
 				C58EE70225CEEDF000976A3F /* ProxyRest.swift in Sources */,
 				C58EE71A25CEF91400976A3F /* RepoHomeWeb.swift in Sources */,
 				C58EE72E25CEFE5200976A3F /* HomePostsResponse.swift in Sources */,
 				C58EE74125CF0EC100976A3F /* HomePostsViewModel.swift in Sources */,
 				C58EE74625CF0EDA00976A3F /* InterfaceHomePostsViewModel.swift in Sources */,
+				C58EE75025CF3A6E00976A3F /* HomePostsDatabase.swift in Sources */,
 				C58EE71325CEF7E500976A3F /* InterfaceProxyrest.swift in Sources */,
 				C58EE6AD25CEE51400976A3F /* SceneDelegate.swift in Sources */,
 			);
