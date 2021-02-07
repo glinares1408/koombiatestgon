@@ -29,9 +29,9 @@ class UserInformationTableViewHeaderView: UITableViewHeaderFooterView {
     
     private func setupInterface() {
         contentView.backgroundColor = UIColor.white
-        userPhotoImageView.layer.cornerRadius = userPhotoImageView.bounds.height / 2
+        userPhotoImageView.layer.cornerRadius = userPhotoImageView.bounds.width / 2
         userPhotoImageView.clipsToBounds = true
-        userPhotoImageView.backgroundColor = UIColor.blue
+        userPhotoImageView.backgroundColor = UIColor.white
         
         nameLabel.font = UIFont.systemFont(ofSize: 18)
         emailLabel.font = UIFont.italicSystemFont(ofSize: 14)
@@ -40,7 +40,12 @@ class UserInformationTableViewHeaderView: UITableViewHeaderFooterView {
     
     func setupProperties(name: String, email: String, date: String) {
         nameLabel.text = name
-        emailLabel.text = email
+        emailLabel.text = email.lowercased()
         dateLabel.text = date
+    }
+    
+    func setupUserProfileImage(image: UIImage?) {
+        userPhotoImageView.image = image
+        userPhotoImageView.contentMode = .scaleAspectFill
     }
 }

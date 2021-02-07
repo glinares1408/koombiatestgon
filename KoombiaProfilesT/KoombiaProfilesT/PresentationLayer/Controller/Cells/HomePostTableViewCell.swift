@@ -24,6 +24,7 @@ class HomePostTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         topImageView.backgroundColor = nil
+        topImageView.image = nil
     }
     
     func hide() {

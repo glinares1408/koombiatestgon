@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 typealias HomePostsViewModelCompletionClosure = (_ success: Bool, _ error: Error?) -> Void
+typealias HomePostSetupImageCompletionClosure = (_ image: UIImage?, _ error: Error?) -> Void
 
 class HomePostViewModel {
     let useCase: InterfaceHomePostsUseCase
@@ -19,6 +21,7 @@ class HomePostViewModel {
 }
 
 extension HomePostViewModel: InterfaceHomePostsViewModel {
+
     func getPosts(completion: @escaping HomePostsViewModelCompletionClosure) {
         
         useCase.obtainHomePosts {[weak self] (homePosts, error) in
@@ -32,6 +35,17 @@ extension HomePostViewModel: InterfaceHomePostsViewModel {
             self.homePublication = homePosts;
             
             completion(true, nil)
+        }
+    }
+    
+    func setupImage(path: String, completion: @escaping HomePostSetupImageCompletionClosure) {
+        RepoWebImage().obtainImage(path: path) { (image, error) in
+            guard let image = image else {
+                //Default image?
+                return
+            }
+            
+            completion(image, nil)
         }
     }
 }

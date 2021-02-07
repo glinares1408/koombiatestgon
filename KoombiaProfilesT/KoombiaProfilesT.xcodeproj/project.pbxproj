@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C56F57A725CF981600D2C120 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F57A625CF981600D2C120 /* Array+Extension.swift */; };
+		C56F57AC25CF9D7B00D2C120 /* ProxyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F57AB25CF9D7B00D2C120 /* ProxyImage.swift */; };
+		C56F57B225CF9EA500D2C120 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = C56F57B125CF9EA500D2C120 /* AlamofireImage */; };
+		C56F57B725CFA7AF00D2C120 /* RepoWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F57B625CFA7AF00D2C120 /* RepoWebImage.swift */; };
 		C58EE6AB25CEE51400976A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE6AA25CEE51400976A3F /* AppDelegate.swift */; };
 		C58EE6AD25CEE51400976A3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE6AC25CEE51400976A3F /* SceneDelegate.swift */; };
 		C58EE6AF25CEE51400976A3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE6AE25CEE51400976A3F /* ViewController.swift */; };
@@ -58,6 +61,8 @@
 
 /* Begin PBXFileReference section */
 		C56F57A625CF981600D2C120 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		C56F57AB25CF9D7B00D2C120 /* ProxyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyImage.swift; sourceTree = "<group>"; };
+		C56F57B625CFA7AF00D2C120 /* RepoWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoWebImage.swift; sourceTree = "<group>"; };
 		C58EE6A725CEE51400976A3F /* KoombiaProfilesT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KoombiaProfilesT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C58EE6AA25CEE51400976A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C58EE6AC25CEE51400976A3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +105,7 @@
 			files = (
 				C58EE6E825CEEC9200976A3F /* CouchbaseLiteSwift in Frameworks */,
 				C58EE6EE25CEECB500976A3F /* Alamofire in Frameworks */,
+				C56F57B225CF9EA500D2C120 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +196,7 @@
 			children = (
 				C58EE70125CEEDF000976A3F /* ProxyRest.swift */,
 				C58EE71225CEF7E500976A3F /* InterfaceProxyrest.swift */,
+				C56F57AB25CF9D7B00D2C120 /* ProxyImage.swift */,
 			);
 			path = "Http Helper";
 			sourceTree = "<group>";
@@ -219,6 +226,7 @@
 			children = (
 				C58EE71925CEF91400976A3F /* RepoHomeWeb.swift */,
 				C58EE72525CEFD7700976A3F /* InterfaceRepoHomeWeb.swift */,
+				C56F57B625CFA7AF00D2C120 /* RepoWebImage.swift */,
 			);
 			path = Web;
 			sourceTree = "<group>";
@@ -348,6 +356,7 @@
 			packageProductDependencies = (
 				C58EE6E725CEEC9200976A3F /* CouchbaseLiteSwift */,
 				C58EE6ED25CEECB500976A3F /* Alamofire */,
+				C56F57B125CF9EA500D2C120 /* AlamofireImage */,
 			);
 			productName = KoombiaProfilesT;
 			productReference = C58EE6A725CEE51400976A3F /* KoombiaProfilesT.app */;
@@ -423,6 +432,7 @@
 			packageReferences = (
 				C58EE6E625CEEC9200976A3F /* XCRemoteSwiftPackageReference "couchbase-lite-swift-ee" */,
 				C58EE6EC25CEECB500976A3F /* XCRemoteSwiftPackageReference "Alamofire" */,
+				C56F57B025CF9EA500D2C120 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = C58EE6A825CEE51400976A3F /* Products */;
 			projectDirPath = "";
@@ -497,6 +507,7 @@
 				C58EE72625CEFD7700976A3F /* InterfaceRepoHomeWeb.swift in Sources */,
 				C58EE76925CF469A00976A3F /* RepoDataBase.swift in Sources */,
 				C58EE73925CF0D5800976A3F /* InterfaceHomePostsUseCase.swift in Sources */,
+				C56F57B725CFA7AF00D2C120 /* RepoWebImage.swift in Sources */,
 				C58EE77825CF687100976A3F /* HomePostTableViewCell.swift in Sources */,
 				C58EE73425CF0C9B00976A3F /* HomePostsUseCase.swift in Sources */,
 				C58EE70225CEEDF000976A3F /* ProxyRest.swift in Sources */,
@@ -509,6 +520,7 @@
 				C58EE71325CEF7E500976A3F /* InterfaceProxyrest.swift in Sources */,
 				C56F57A725CF981600D2C120 /* Array+Extension.swift in Sources */,
 				C58EE78F25CF7B3800976A3F /* UIView+Extension.swift in Sources */,
+				C56F57AC25CF9D7B00D2C120 /* ProxyImage.swift in Sources */,
 				C58EE6AD25CEE51400976A3F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -846,6 +858,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C56F57B025CF9EA500D2C120 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.0;
+			};
+		};
 		C58EE6E625CEEC9200976A3F /* XCRemoteSwiftPackageReference "couchbase-lite-swift-ee" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/couchbase/couchbase-lite-swift-ee.git";
@@ -865,6 +885,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C56F57B125CF9EA500D2C120 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C56F57B025CF9EA500D2C120 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
+		};
 		C58EE6E725CEEC9200976A3F /* CouchbaseLiteSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C58EE6E625CEEC9200976A3F /* XCRemoteSwiftPackageReference "couchbase-lite-swift-ee" */;

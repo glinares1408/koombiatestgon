@@ -12,6 +12,8 @@ import Alamofire
 
 class ViewController: UIViewController {
     
+    private let profileHeaderHeight: CGFloat = 70
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.backgroundColor = .clear
@@ -67,9 +69,14 @@ extension ViewController: UITableViewDataSource {
         let tableViewCell = tableView.dequeueReusableCell(withIdentifier: HomePostTableViewCell.defaultReuseIdentifier, for: indexPath)
         
         guard
-            let cell = tableViewCell as? HomePostTableViewCell
+            let cell = tableViewCell as? HomePostTableViewCell,
+            let item = viewModel.homePublication?.data[safe: indexPath.section]?.post.pics.first
         else {
             return tableViewCell
+        }
+        
+        viewModel.setupImage(path: item) { (image, error) in
+            cell.topImageView.image = image
         }
         
         return cell
@@ -87,21 +94,8 @@ extension ViewController: UITableViewDelegate {
             return nil
         }
         
-        AF.request(userInfo.profilePic, method: .get).response { response in
-            let image: UIImage?
-            
-            switch response.result {
-            case .success(let responseData):
-                image = UIImage(data: responseData!)
-                
-            case .failure(let error):
-                image = nil
-                print("error--->",error)
-            }
-            
-            DispatchQueue.main.async {
-                headerView.userPhotoImageView.image = image
-            }
+        viewModel.setupImage(path: userInfo.profilePic) { (image, error) in
+            headerView.setupUserProfileImage(image: image)
         }
         
         headerView.setupProperties(name: userInfo.name, email: userInfo.email, date: userInfo.post.date)//Improve date
@@ -110,7 +104,7 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 70
+        return profileHeaderHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

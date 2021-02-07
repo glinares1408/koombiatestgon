@@ -11,4 +11,6 @@ protocol InterfaceHomePostsViewModel {
     init(useCase: InterfaceHomePostsUseCase)
     var homePublication: HomePostsResponse? { get set }
     func getPosts(completion: @escaping HomePostsViewModelCompletionClosure)
+    func setupImage(path: String, completion: @escaping HomePostSetupImageCompletionClosure)
 }
+

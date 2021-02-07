@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "AlamofireImage",
+        "repositoryURL": "https://github.com/Alamofire/AlamofireImage",
+        "state": {
+          "branch": null,
+          "revision": "3e8edbeb75227f8542aa87f90240cf0424d6362f",
+          "version": "4.1.0"
+        }
+      },
+      {
         "package": "CouchbaseLiteSwift",
         "repositoryURL": "https://github.com/couchbase/couchbase-lite-swift-ee.git",
         "state": {
