@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol CollectionTapDelegate: AnyObject {
+    func imageTapped(path: String)
+}
+
 class HomePostTableViewCell: UITableViewCell {
     
     var collectionPics: [PicAuxiliarItem]?
+    
+    var delegate: CollectionTapDelegate?
+    
     private let customSpace: CGFloat = 10
     private let itemHeight: CGFloat = 100;
     
@@ -37,18 +44,20 @@ class HomePostTableViewCell: UITableViewCell {
             bottomCollectionView.bounces = true
             bottomCollectionView.isUserInteractionEnabled = true
             bottomCollectionView.isScrollEnabled = true
-                       
-                       let nib = UINib(nibName: BottomCollectionViewCell.defaultReuseIdentifier, bundle: nil)
+            let nib = UINib(nibName: BottomCollectionViewCell.defaultReuseIdentifier, bundle: nil)
             bottomCollectionView.register(nib, forCellWithReuseIdentifier: BottomCollectionViewCell.defaultReuseIdentifier)
-            //bottomCollectionView.collectionViewLayout = collectionLayoutFlow()
             bottomCollectionView.dataSource = self
+            bottomCollectionView.delegate = self
         }
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupInterface()
+    }
+    
+    private func setupInterface() {
+        selectionStyle = .none
     }
     
     override func prepareForReuse() {
@@ -154,5 +163,17 @@ extension HomePostTableViewCell: UICollectionViewDataSource {
         }
         
         return cell
+    }
+}
+
+extension HomePostTableViewCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard
+            let pictureAuxiliary = collectionPics?[safe: indexPath.row]
+        else {
+            return
+        }
+        
+        delegate?.imageTapped(path: pictureAuxiliary.pic)
     }
 }
