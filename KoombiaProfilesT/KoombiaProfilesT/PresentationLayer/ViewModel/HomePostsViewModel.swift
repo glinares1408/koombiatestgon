@@ -10,6 +10,7 @@ import UIKit
 
 typealias HomePostsViewModelCompletionClosure = (_ success: Bool, _ error: Error?) -> Void
 typealias HomePostSetupImageCompletionClosure = (_ image: UIImage?, _ error: Error?) -> Void
+typealias HomePostsRemoveAllDataCompletionClosure = (_ sucess: Bool, _ error: Error?) -> Void
 
 class HomePostViewModel {
     let useCase: InterfaceHomePostsUseCase
@@ -82,6 +83,12 @@ extension HomePostViewModel: InterfaceHomePostsViewModel {
         CatchImagesUseCase().summonImage(path: path) { (image, currentPath, error) in
             guard let image = image, path == currentPath else { return }
             completion(image, nil)
+        }
+    }
+    
+    func removeAllData(completion: @escaping HomePostsRemoveAllDataCompletionClosure) {
+        useCase.removeDataFromDB { (success, error) in
+            completion(success, error)
         }
     }
 }

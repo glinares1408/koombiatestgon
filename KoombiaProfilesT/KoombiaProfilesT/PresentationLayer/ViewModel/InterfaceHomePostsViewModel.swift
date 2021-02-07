@@ -12,5 +12,6 @@ protocol InterfaceHomePostsViewModel {
     var homePublication: [HomePostAuxiliar]? { get }
     func getPosts(completion: @escaping HomePostsViewModelCompletionClosure)
     func setupImage(path: String, completion: @escaping HomePostSetupImageCompletionClosure)
+    func removeAllData(completion: @escaping HomePostsRemoveAllDataCompletionClosure)
 }
 

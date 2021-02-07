@@ -98,16 +98,20 @@ class ViewController: UIViewController {
     }
     
     @objc private func refreshControlValueChanged() {
-        viewModel.getPosts {[weak self] (success, error) in
-            guard let self = self else { return }
+        viewModel.removeAllData { [weak self] (sucess, error) in
+            guard let self = self, sucess else { return }
             
-            guard success else {
-                self.presentalert()
-                return
+            self.viewModel.getPosts {[weak self] (success, error) in
+                guard let self = self else { return }
+                
+                guard success else {
+                    self.presentalert()
+                    return
+                }
+                
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
             }
-            
-            self.tableView.reloadData()
-            self.refreshControl.endRefreshing()
         }
     }
     

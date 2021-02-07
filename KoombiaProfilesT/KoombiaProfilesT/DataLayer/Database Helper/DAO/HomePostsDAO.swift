@@ -10,6 +10,7 @@ import CouchbaseLiteSwift
 
 typealias HomePostsDAOInsertCompletionClosure = (_ sucess: Bool, _ error: Error?) -> Void
 typealias HomePostsDAOReading = (_ homePosts: HomePostsResponse?, _ error: Error?) -> Void
+typealias HomePostsDAODeleteData = (_ sucess: Bool, _ error: Error?) -> Void
 
 enum HomePostsDAOError: Error {
     case databaseProblem
@@ -19,8 +20,6 @@ enum HomePostsDAOError: Error {
 }
 
 class HomePostsDAO {
-    
-    var myId: String?
     
     func insertHomePosts(homePostResponse: HomePostsResponse, completion: @escaping HomePostsDAOInsertCompletionClosure) {
         guard let database = HomePostsDatabase.shared.database else {
@@ -34,10 +33,10 @@ class HomePostsDAO {
         }
         
         let finalString = String(data: data, encoding: String.Encoding.utf8)
-        
         let mutableDocument = MutableDocument().setFloat(2.0, forKey: "version").setString("homeposts2", forKey: "type").setString(finalString, forKey: "type2")
         
-        myId = mutableDocument.id
+        let defaults = UserDefaults.standard
+        defaults.set(mutableDocument.id, forKey: "datakey")
         
         guard let _ = try? database.saveDocument(mutableDocument) else {
             completion(false, HomePostsDAOError.writing)
@@ -53,20 +52,43 @@ class HomePostsDAO {
             return
         }
         
-        let query = QueryBuilder.select(SelectResult.all()).from(DataSource.database(database)).where(Expression.property("type").equalTo(Expression.string("homeposts2")))
-
-        
-        do {
-            let result5 = try query.execute()
-            print(result5.allResults().count)
-
-            for result in try query.execute() {
-                print(result)
-            }
-        } catch {
-            fatalError("Error during the query")
+//        let query = QueryBuilder.select(SelectResult.all()).from(DataSource.database(database)).where(Expression.property("type").equalTo(Expression.string("homeposts2")))
+        guard
+            let datayKey = UserDefaults.standard.string(forKey: "datakey"),
+            let document = database.document(withID: datayKey),
+            let reponseString = document.string(forKey: "type2")
+        else {
+            completion(nil, nil)
+            return
         }
         
-        completion(nil, nil)
+        let data = Data(reponseString.utf8)
+        
+        guard let dataObject = try? JSONDecoder().decode(HomePostsResponse.self, from: data) else {
+            completion(nil, nil)
+            return
+        }
+        
+        completion(dataObject, nil)
+    }
+    
+    func deleteDocument(completion: @escaping HomePostsDAODeleteData) {
+        guard let database = HomePostsDatabase.shared.database else {
+            completion(false, HomePostsDAOError.databaseProblem)
+            return
+        }
+        
+        guard
+            let datayKey = UserDefaults.standard.string(forKey: "datakey"),
+            let document = database.document(withID: datayKey),
+            let _ = try? database.deleteDocument(document)
+        else {
+            completion(false, nil)
+            return
+        }
+        
+        UserDefaults.standard.removeObject(forKey: "datakey")
+        
+        completion(true, nil)
     }
 }

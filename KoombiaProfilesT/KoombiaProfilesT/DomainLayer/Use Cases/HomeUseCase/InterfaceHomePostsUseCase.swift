@@ -10,4 +10,5 @@ import Foundation
 protocol InterfaceHomePostsUseCase {
     init(repoWeb: InterfaceRepoHomeWeb, repoDataBase: InterfaceRepoDataBase)
     func obtainHomePosts(completion: @escaping HomePostsUseCaseCompletionClosure)
+    func removeDataFromDB(completion: @escaping HomePostsDeleteDataCompletionClosure)
 }

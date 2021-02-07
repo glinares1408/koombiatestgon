@@ -14,10 +14,9 @@ struct HomePostsDatabase {
     let database: Database?
     
     init() {
-        //let config = DatabaseConfiguration()
+        let config = DatabaseConfiguration()
         let dataBaseName = Constants.DataBase.homePosts
-        //config.encryptionKey = EncryptionKey.password("KoombeaTest") //WIP: this pass could be a random string from keychain.
-        //database = try? Database(name: dataBaseName, config: config)
-        database = try? Database(name: dataBaseName)
+        config.encryptionKey = EncryptionKey.password("KoombeaTest") //WIP: this pass could be a random string from keychain.
+        database = try? Database(name: dataBaseName, config: config)
     }
 }

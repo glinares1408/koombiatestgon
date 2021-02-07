@@ -8,6 +8,7 @@
 import Foundation
 
 typealias HomePostsUseCaseCompletionClosure = (_ posts: HomePostsResponse?, _ error: Error?) -> Void
+typealias HomePostsDeleteDataCompletionClosure = (_ sucess: Bool, _ error: Error?) -> Void
 
 class HomePostsUseCase {
     let repoWeb: InterfaceRepoHomeWeb
@@ -20,6 +21,12 @@ class HomePostsUseCase {
 }
 
 extension HomePostsUseCase: InterfaceHomePostsUseCase {
+    func removeDataFromDB(completion: @escaping HomePostsDeleteDataCompletionClosure) {
+        repoDataBase.removeAllData { (success, error) in
+            completion(success, error)
+        }
+    }
+    
     func obtainHomePosts(completion: @escaping HomePostsUseCaseCompletionClosure) {
         
         repoDataBase.fetchHomePosts { [weak self] (response, error) in
@@ -33,17 +40,11 @@ extension HomePostsUseCase: InterfaceHomePostsUseCase {
                         completion(nil, error)
                         return
                     }
-                    
-                    //Mmmmm I dunno.
                     self.repoDataBase.insertHomePosts(homePosts: homePosts) { (success, error) in
                         completion(homePosts, nil)
                     }
                 }
             }
         }
-    }
-    
-    func pullToRefresh() {
-        //Add logic to delete all database and fetch new data.
     }
 }

@@ -11,4 +11,5 @@ import Foundation
 protocol InterfaceRepoDataBase {
     func insertHomePosts(homePosts: HomePostsResponse, completion: @escaping RepoDataBaseInsertingDataCompletionClosure)
     func fetchHomePosts(completion: @escaping RepoDataBaseFetchingDataCompletionClosure)
+    func removeAllData(completion: @escaping RepoDataVaseDeleDataCompletionClosure)
 }

@@ -9,20 +9,27 @@ import Foundation
 
 typealias RepoDataBaseFetchingDataCompletionClosure = (_ homePost: HomePostsResponse?, _ error: Error?) -> Void
 typealias RepoDataBaseInsertingDataCompletionClosure = (_ success: Bool, _ error: Error?) -> Void
+typealias RepoDataVaseDeleDataCompletionClosure = (_ sucess: Bool, _ error: Error?) -> Void
 
 class RepoDataBase {
-    
+    let dao = HomePostsDAO()
 }
 
 extension RepoDataBase: InterfaceRepoDataBase {
     func fetchHomePosts(completion: @escaping RepoDataBaseFetchingDataCompletionClosure) {
-        HomePostsDAO().fetchHomePosts { (response, error) in
+        dao.fetchHomePosts { (response, error) in
             completion(response, error)
         }
     }
     
     func insertHomePosts(homePosts: HomePostsResponse, completion: @escaping RepoDataBaseInsertingDataCompletionClosure) {
-        HomePostsDAO().insertHomePosts(homePostResponse: homePosts) { (success, error) in
+        dao.insertHomePosts(homePostResponse: homePosts) { (success, error) in
+            completion(success, error)
+        }
+    }
+    
+    func removeAllData(completion: @escaping RepoDataVaseDeleDataCompletionClosure) {
+        dao.deleteDocument { (success, error) in
             completion(success, error)
         }
     }
