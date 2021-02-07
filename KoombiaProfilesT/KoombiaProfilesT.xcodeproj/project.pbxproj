@@ -11,6 +11,10 @@
 		C56F57AC25CF9D7B00D2C120 /* ProxyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F57AB25CF9D7B00D2C120 /* ProxyImage.swift */; };
 		C56F57B225CF9EA500D2C120 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = C56F57B125CF9EA500D2C120 /* AlamofireImage */; };
 		C56F57B725CFA7AF00D2C120 /* RepoWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F57B625CFA7AF00D2C120 /* RepoWebImage.swift */; };
+		C56F57BC25CFB19900D2C120 /* ProxyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F57BB25CFB19900D2C120 /* ProxyFile.swift */; };
+		C56F57C125D0322000D2C120 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F57C025D0322000D2C120 /* String+Extension.swift */; };
+		C56F57C625D0394E00D2C120 /* UtilityKoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F57C525D0394E00D2C120 /* UtilityKoom.swift */; };
+		C56F57CD25D03D2600D2C120 /* CatchImagesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F57CC25D03D2600D2C120 /* CatchImagesUseCase.swift */; };
 		C58EE6AB25CEE51400976A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE6AA25CEE51400976A3F /* AppDelegate.swift */; };
 		C58EE6AD25CEE51400976A3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE6AC25CEE51400976A3F /* SceneDelegate.swift */; };
 		C58EE6AF25CEE51400976A3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE6AE25CEE51400976A3F /* ViewController.swift */; };
@@ -63,6 +67,10 @@
 		C56F57A625CF981600D2C120 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		C56F57AB25CF9D7B00D2C120 /* ProxyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyImage.swift; sourceTree = "<group>"; };
 		C56F57B625CFA7AF00D2C120 /* RepoWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoWebImage.swift; sourceTree = "<group>"; };
+		C56F57BB25CFB19900D2C120 /* ProxyFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyFile.swift; sourceTree = "<group>"; };
+		C56F57C025D0322000D2C120 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		C56F57C525D0394E00D2C120 /* UtilityKoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityKoom.swift; sourceTree = "<group>"; };
+		C56F57CC25D03D2600D2C120 /* CatchImagesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchImagesUseCase.swift; sourceTree = "<group>"; };
 		C58EE6A725CEE51400976A3F /* KoombiaProfilesT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KoombiaProfilesT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C58EE6AA25CEE51400976A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C58EE6AC25CEE51400976A3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +134,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C56F57CA25D03CFF00D2C120 /* HomeUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				C58EE73825CF0D5800976A3F /* InterfaceHomePostsUseCase.swift */,
+				C58EE73325CF0C9B00976A3F /* HomePostsUseCase.swift */,
+			);
+			path = HomeUseCase;
+			sourceTree = "<group>";
+		};
+		C56F57CB25D03D0B00D2C120 /* ImagesUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				C56F57CC25D03D2600D2C120 /* CatchImagesUseCase.swift */,
+			);
+			path = ImagesUseCase;
+			sourceTree = "<group>";
+		};
 		C58EE69E25CEE51400976A3F = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +222,7 @@
 				C58EE70125CEEDF000976A3F /* ProxyRest.swift */,
 				C58EE71225CEF7E500976A3F /* InterfaceProxyrest.swift */,
 				C56F57AB25CF9D7B00D2C120 /* ProxyImage.swift */,
+				C56F57BB25CFB19900D2C120 /* ProxyFile.swift */,
 			);
 			path = "Http Helper";
 			sourceTree = "<group>";
@@ -242,8 +268,8 @@
 		C58EE73225CF0BBC00976A3F /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
-				C58EE73825CF0D5800976A3F /* InterfaceHomePostsUseCase.swift */,
-				C58EE73325CF0C9B00976A3F /* HomePostsUseCase.swift */,
+				C56F57CB25D03D0B00D2C120 /* ImagesUseCase */,
+				C56F57CA25D03CFF00D2C120 /* HomeUseCase */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -323,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				C58EE78D25CF7B0B00976A3F /* Extensions */,
+				C56F57C525D0394E00D2C120 /* UtilityKoom.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -332,6 +359,7 @@
 			children = (
 				C58EE78E25CF7B3700976A3F /* UIView+Extension.swift */,
 				C56F57A625CF981600D2C120 /* Array+Extension.swift */,
+				C56F57C025D0322000D2C120 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -504,9 +532,12 @@
 				C58EE76125CF464000976A3F /* InterfaceRepoDataBase.swift in Sources */,
 				C58EE6AF25CEE51400976A3F /* ViewController.swift in Sources */,
 				C58EE6AB25CEE51400976A3F /* AppDelegate.swift in Sources */,
+				C56F57CD25D03D2600D2C120 /* CatchImagesUseCase.swift in Sources */,
 				C58EE72625CEFD7700976A3F /* InterfaceRepoHomeWeb.swift in Sources */,
 				C58EE76925CF469A00976A3F /* RepoDataBase.swift in Sources */,
 				C58EE73925CF0D5800976A3F /* InterfaceHomePostsUseCase.swift in Sources */,
+				C56F57C625D0394E00D2C120 /* UtilityKoom.swift in Sources */,
+				C56F57C125D0322000D2C120 /* String+Extension.swift in Sources */,
 				C56F57B725CFA7AF00D2C120 /* RepoWebImage.swift in Sources */,
 				C58EE77825CF687100976A3F /* HomePostTableViewCell.swift in Sources */,
 				C58EE73425CF0C9B00976A3F /* HomePostsUseCase.swift in Sources */,
@@ -519,6 +550,7 @@
 				C58EE75025CF3A6E00976A3F /* HomePostsDatabase.swift in Sources */,
 				C58EE71325CEF7E500976A3F /* InterfaceProxyrest.swift in Sources */,
 				C56F57A725CF981600D2C120 /* Array+Extension.swift in Sources */,
+				C56F57BC25CFB19900D2C120 /* ProxyFile.swift in Sources */,
 				C58EE78F25CF7B3800976A3F /* UIView+Extension.swift in Sources */,
 				C56F57AC25CF9D7B00D2C120 /* ProxyImage.swift in Sources */,
 				C58EE6AD25CEE51400976A3F /* SceneDelegate.swift in Sources */,

@@ -39,12 +39,8 @@ extension HomePostViewModel: InterfaceHomePostsViewModel {
     }
     
     func setupImage(path: String, completion: @escaping HomePostSetupImageCompletionClosure) {
-        RepoWebImage().obtainImage(path: path) { (image, error) in
-            guard let image = image else {
-                //Default image?
-                return
-            }
-            
+        CatchImagesUseCase().summonImage(path: path) { (image, currentPath, error) in
+            guard let image = image, path == currentPath else { return }
             completion(image, nil)
         }
     }

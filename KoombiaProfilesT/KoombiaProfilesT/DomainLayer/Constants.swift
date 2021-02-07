@@ -21,4 +21,6 @@ struct Constants {
     struct DataBase {
         static let homePosts = "home_posts"
     }
+    
+    static let directoryImages = "home_profiles"
 }
