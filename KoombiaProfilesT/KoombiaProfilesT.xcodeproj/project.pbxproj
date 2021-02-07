@@ -21,6 +21,8 @@
 		C56F57FE25D0528B00D2C120 /* KoombeaPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F57FD25D0528B00D2C120 /* KoombeaPost.swift */; };
 		C56F580425D0534000D2C120 /* HomePostsAuxiliarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F580325D0534000D2C120 /* HomePostsAuxiliarModel.swift */; };
 		C56F580E25D0840600D2C120 /* PreviewImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F580C25D0840600D2C120 /* PreviewImageViewController.swift */; };
+		C56F581B25D0A80E00D2C120 /* UnitTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F581A25D0A80E00D2C120 /* UnitTestHelper.swift */; };
+		C56F582925D0AA9700D2C120 /* AllPosts.json in Resources */ = {isa = PBXBuildFile; fileRef = C56F582425D0A8F000D2C120 /* AllPosts.json */; };
 		C58EE6AB25CEE51400976A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE6AA25CEE51400976A3F /* AppDelegate.swift */; };
 		C58EE6AD25CEE51400976A3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE6AC25CEE51400976A3F /* SceneDelegate.swift */; };
 		C58EE6AF25CEE51400976A3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EE6AE25CEE51400976A3F /* ViewController.swift */; };
@@ -83,6 +85,8 @@
 		C56F57FD25D0528B00D2C120 /* KoombeaPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoombeaPost.swift; sourceTree = "<group>"; };
 		C56F580325D0534000D2C120 /* HomePostsAuxiliarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostsAuxiliarModel.swift; sourceTree = "<group>"; };
 		C56F580C25D0840600D2C120 /* PreviewImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageViewController.swift; sourceTree = "<group>"; };
+		C56F581A25D0A80E00D2C120 /* UnitTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestHelper.swift; sourceTree = "<group>"; };
+		C56F582425D0A8F000D2C120 /* AllPosts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AllPosts.json; sourceTree = "<group>"; };
 		C58EE6A725CEE51400976A3F /* KoombiaProfilesT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KoombiaProfilesT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C58EE6AA25CEE51400976A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C58EE6AC25CEE51400976A3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +200,22 @@
 			path = "Preview Controller";
 			sourceTree = "<group>";
 		};
+		C56F581F25D0A81200D2C120 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C56F581A25D0A80E00D2C120 /* UnitTestHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		C56F582325D0A8E200D2C120 /* HomePosts */ = {
+			isa = PBXGroup;
+			children = (
+				C56F582425D0A8F000D2C120 /* AllPosts.json */,
+			);
+			path = HomePosts;
+			sourceTree = "<group>";
+		};
 		C58EE69E25CEE51400976A3F = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +256,8 @@
 		C58EE6C025CEE51500976A3F /* KoombiaProfilesTTests */ = {
 			isa = PBXGroup;
 			children = (
+				C56F582325D0A8E200D2C120 /* HomePosts */,
+				C56F581F25D0A81200D2C120 /* Helper */,
 				C58EE6C125CEE51500976A3F /* KoombiaProfilesTTests.swift */,
 				C58EE6C325CEE51500976A3F /* Info.plist */,
 			);
@@ -534,6 +556,7 @@
 				C56F57EB25D041A900D2C120 /* BottomCollectionViewCell.xib in Resources */,
 				C58EE78825CF6A4600976A3F /* UserInformationTableViewHeaderView.xib in Resources */,
 				C58EE6B225CEE51400976A3F /* Main.storyboard in Resources */,
+				C56F582925D0AA9700D2C120 /* AllPosts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +641,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C58EE6C225CEE51500976A3F /* KoombiaProfilesTTests.swift in Sources */,
+				C56F581B25D0A80E00D2C120 /* UnitTestHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
