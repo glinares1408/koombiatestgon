@@ -13,7 +13,7 @@ typealias HomePostSetupImageCompletionClosure = (_ image: UIImage?, _ error: Err
 
 class HomePostViewModel {
     let useCase: InterfaceHomePostsUseCase
-    var homePublication: HomePostsResponse?
+    var homePublication: [HomePostAuxiliar]?
     
     required init(useCase: InterfaceHomePostsUseCase = HomePostsUseCase(repoWeb: RepoHomeWeb(proxyRest: ProxyRest()), repoDataBase: RepoDataBase())) {//WIP: improve this
         self.useCase = useCase
@@ -21,7 +21,7 @@ class HomePostViewModel {
 }
 
 extension HomePostViewModel: InterfaceHomePostsViewModel {
-
+    
     func getPosts(completion: @escaping HomePostsViewModelCompletionClosure) {
         
         useCase.obtainHomePosts {[weak self] (homePosts, error) in
@@ -32,10 +32,50 @@ extension HomePostViewModel: InterfaceHomePostsViewModel {
                 return
             }
             
-            self.homePublication = homePosts;
-            
+            self.processHomePublication(homePosts: homePosts)
             completion(true, nil)
         }
+    }
+    
+    func processHomePublication(homePosts: HomePostsResponse) {
+        let homePostsAuxiliarList = homePosts.data.map ({ item -> HomePostAuxiliar in
+            
+            let dateToShow = (item.post.date.count > 10) ? String(item.post.date.prefix(10)) : item.post.date
+            
+            let type = (item.post.pics.count >= 4) ? HomePostsType.twoBoxesTopBottomImages : (HomePostsType(rawValue: item.post.pics.count) ?? HomePostsType.unknown)
+            
+            let mainPic: String?
+            let bottomPics: [PicAuxiliarItem]
+            
+            let totalPics = item.post.pics
+            
+            switch type {
+            case .boxTopImage:
+                mainPic = item.post.pics.first
+                bottomPics = []
+            case .boxBottomImages:
+                mainPic = nil
+                bottomPics = item.post.pics.map{PicAuxiliarItem(pic: $0)}
+            case .twoBoxesTopImageTwoBottomImages:
+                mainPic = item.post.pics.first
+                bottomPics = Array(totalPics.dropFirst()).map{ PicAuxiliarItem(pic: $0)}
+            case .twoBoxesTopBottomImages:
+                mainPic = item.post.pics.first
+                bottomPics = Array(totalPics.dropFirst()).map{ PicAuxiliarItem(pic: $0)}
+            case .unknown:
+                mainPic = nil
+                bottomPics = []
+            }
+            
+            let koombeaAux = KoombeaPostAuxiliar(id: item.post.id, date: item.post.date, type: type, mainPic: mainPic, mainPicImage: nil, pics: bottomPics)
+            
+            let homePostAuxiliar = HomePostAuxiliar(uid: item.uid, name: item.name, email: item.email, profilePic: item.profilePic, profilePicImage: nil, dateProfile: dateToShow, post: koombeaAux)
+            
+            return homePostAuxiliar
+            
+        })
+        
+        homePublication = homePostsAuxiliarList
     }
     
     func setupImage(path: String, completion: @escaping HomePostSetupImageCompletionClosure) {

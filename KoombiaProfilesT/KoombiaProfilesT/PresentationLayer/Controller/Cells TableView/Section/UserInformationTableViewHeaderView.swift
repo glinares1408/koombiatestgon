@@ -9,7 +9,11 @@ import UIKit
 
 class UserInformationTableViewHeaderView: UITableViewHeaderFooterView {
     
-    @IBOutlet weak var userPhotoImageView: UIImageView!
+    @IBOutlet weak var userPhotoImageView: UIImageView! {
+        didSet {
+            userPhotoImageView.contentMode = .scaleAspectFill
+        }
+    }
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -31,7 +35,6 @@ class UserInformationTableViewHeaderView: UITableViewHeaderFooterView {
         contentView.backgroundColor = UIColor.white
         userPhotoImageView.layer.cornerRadius = userPhotoImageView.bounds.width / 2
         userPhotoImageView.clipsToBounds = true
-        userPhotoImageView.backgroundColor = UIColor.white
         
         nameLabel.font = UIFont.systemFont(ofSize: 18)
         emailLabel.font = UIFont.italicSystemFont(ofSize: 14)
@@ -46,6 +49,5 @@ class UserInformationTableViewHeaderView: UITableViewHeaderFooterView {
     
     func setupUserProfileImage(image: UIImage?) {
         userPhotoImageView.image = image
-        userPhotoImageView.contentMode = .scaleAspectFill
     }
 }

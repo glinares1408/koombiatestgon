@@ -18,8 +18,8 @@ class ViewController: UIViewController {
         didSet {
             tableView.backgroundColor = .clear
             tableView.separatorStyle = .none
-            tableView.rowHeight = 300 //UITableView.automaticDimension
-            //tableView.estimatedRowHeight = estimateCellHeight
+            tableView.rowHeight = UITableView.automaticDimension
+            tableView.estimatedRowHeight = 500
             tableView.allowsSelection = false
             
             let nib = UINib(nibName: HomePostTableViewCell.defaultReuseIdentifier, bundle: nil)
@@ -40,8 +40,7 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor.gray
         // Do any additional setup after loading the view.
         
-        let myButton = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 100))
-        myButton.center = view.center
+        let myButton = UIButton(frame: CGRect(x: 100, y: 200, width: 200, height: 100))
         myButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         myButton.setTitle("Click here", for: .normal)
         view.addSubview(myButton)
@@ -58,7 +57,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.homePublication?.data.count ?? .zero
+        return viewModel.homePublication?.count ?? .zero
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,13 +69,23 @@ extension ViewController: UITableViewDataSource {
         
         guard
             let cell = tableViewCell as? HomePostTableViewCell,
-            let item = viewModel.homePublication?.data[safe: indexPath.section]?.post.pics.first
+            let item = viewModel.homePublication?[safe: indexPath.section]
         else {
             return tableViewCell
         }
         
-        viewModel.setupImage(path: item) { (image, error) in
-            cell.topImageView.image = image
+        let isContainingTopBox = cell.setupData(homePost: item)
+        
+        if isContainingTopBox {
+            guard let image = item.post.mainPicImage else {
+                viewModel.setupImage(path: item.post.mainPic ?? String()) { (image, error) in
+                    item.post.mainPicImage = image
+                    cell.setupTopImage(image: image)
+                }
+                return cell
+            }
+            
+            cell.setupTopImage(image: image)
         }
         
         return cell
@@ -89,16 +98,21 @@ extension ViewController: UITableViewDelegate {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: UserInformationTableViewHeaderView.defaultReuseIdentifier)
         guard
             let headerView = header as? UserInformationTableViewHeaderView,
-            let userInfo = viewModel.homePublication?.data[safe: section]
+            let userInfo = viewModel.homePublication?[safe: section]
         else {
             return nil
         }
         
-        viewModel.setupImage(path: userInfo.profilePic) { (image, error) in
+        if let image = userInfo.profilePicImage {
             headerView.setupUserProfileImage(image: image)
+        } else {
+            viewModel.setupImage(path: userInfo.profilePic) { (image, error) in
+                userInfo.profilePicImage = image
+                headerView.setupUserProfileImage(image: image)
+            }
         }
         
-        headerView.setupProperties(name: userInfo.name, email: userInfo.email, date: userInfo.post.date)//Improve date
+        headerView.setupProperties(name: userInfo.name, email: userInfo.email, date: userInfo.dateProfile)//Improve date
         
         return headerView
     }
